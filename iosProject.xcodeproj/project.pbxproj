@@ -14,6 +14,16 @@
 		6ABF654D1EAA1CCA007775FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6ABF654C1EAA1CCA007775FF /* Assets.xcassets */; };
 		6ABF65501EAA1CCA007775FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ABF654E1EAA1CCA007775FF /* LaunchScreen.storyboard */; };
 		6ABF655B1EAA1CCA007775FF /* iosProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF655A1EAA1CCA007775FF /* iosProjectTests.swift */; };
+		6ABF65661EAA2AC7007775FF /* ChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF65651EAA2AC7007775FF /* ChooseViewController.swift */; };
+		6ABF65681EAA32CF007775FF /* TicTacToeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF65671EAA32CF007775FF /* TicTacToeViewController.swift */; };
+		6ABF656A1EAA3334007775FF /* TTTImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF65691EAA3334007775FF /* TTTImageView.swift */; };
+		6ABF656C1EAA335B007775FF /* MPCHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF656B1EAA335B007775FF /* MPCHandler.swift */; };
+		6ABF656E1EAA55E4007775FF /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF656D1EAA55E4007775FF /* DatabaseController.swift */; };
+		6ABF65731EAA5ACF007775FF /* Score+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF656F1EAA5ACF007775FF /* Score+CoreDataClass.swift */; };
+		6ABF65741EAA5ACF007775FF /* Score+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF65701EAA5ACF007775FF /* Score+CoreDataProperties.swift */; };
+		6ABF65751EAA5ACF007775FF /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF65711EAA5ACF007775FF /* User+CoreDataClass.swift */; };
+		6ABF65761EAA5ACF007775FF /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF65721EAA5ACF007775FF /* User+CoreDataProperties.swift */; };
+		6ABF65791EAA6725007775FF /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF65781EAA6725007775FF /* NewUserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +48,16 @@
 		6ABF65561EAA1CCA007775FF /* iosProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ABF655A1EAA1CCA007775FF /* iosProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iosProjectTests.swift; sourceTree = "<group>"; };
 		6ABF655C1EAA1CCA007775FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6ABF65651EAA2AC7007775FF /* ChooseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseViewController.swift; sourceTree = "<group>"; };
+		6ABF65671EAA32CF007775FF /* TicTacToeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicTacToeViewController.swift; sourceTree = "<group>"; };
+		6ABF65691EAA3334007775FF /* TTTImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTTImageView.swift; sourceTree = "<group>"; };
+		6ABF656B1EAA335B007775FF /* MPCHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCHandler.swift; sourceTree = "<group>"; };
+		6ABF656D1EAA55E4007775FF /* DatabaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
+		6ABF656F1EAA5ACF007775FF /* Score+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Score+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6ABF65701EAA5ACF007775FF /* Score+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Score+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6ABF65711EAA5ACF007775FF /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6ABF65721EAA5ACF007775FF /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6ABF65781EAA6725007775FF /* NewUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +100,15 @@
 			isa = PBXGroup;
 			children = (
 				6ABF65421EAA1CCA007775FF /* AppDelegate.swift */,
+				6ABF656D1EAA55E4007775FF /* DatabaseController.swift */,
 				6ABF65441EAA1CCA007775FF /* ViewController.swift */,
+				6ABF65651EAA2AC7007775FF /* ChooseViewController.swift */,
+				6ABF65671EAA32CF007775FF /* TicTacToeViewController.swift */,
+				6ABF65691EAA3334007775FF /* TTTImageView.swift */,
+				6ABF65781EAA6725007775FF /* NewUserViewController.swift */,
+				6ABF656B1EAA335B007775FF /* MPCHandler.swift */,
 				6ABF65461EAA1CCA007775FF /* Main.storyboard */,
+				6ABF65771EAA5AEC007775FF /* Models */,
 				6ABF654C1EAA1CCA007775FF /* Assets.xcassets */,
 				6ABF654E1EAA1CCA007775FF /* LaunchScreen.storyboard */,
 				6ABF65511EAA1CCA007775FF /* Info.plist */,
@@ -97,6 +124,17 @@
 				6ABF655C1EAA1CCA007775FF /* Info.plist */,
 			);
 			path = iosProjectTests;
+			sourceTree = "<group>";
+		};
+		6ABF65771EAA5AEC007775FF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6ABF656F1EAA5ACF007775FF /* Score+CoreDataClass.swift */,
+				6ABF65701EAA5ACF007775FF /* Score+CoreDataProperties.swift */,
+				6ABF65711EAA5ACF007775FF /* User+CoreDataClass.swift */,
+				6ABF65721EAA5ACF007775FF /* User+CoreDataProperties.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,9 +240,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6ABF65731EAA5ACF007775FF /* Score+CoreDataClass.swift in Sources */,
+				6ABF65791EAA6725007775FF /* NewUserViewController.swift in Sources */,
 				6ABF65451EAA1CCA007775FF /* ViewController.swift in Sources */,
+				6ABF65761EAA5ACF007775FF /* User+CoreDataProperties.swift in Sources */,
+				6ABF65661EAA2AC7007775FF /* ChooseViewController.swift in Sources */,
+				6ABF65681EAA32CF007775FF /* TicTacToeViewController.swift in Sources */,
+				6ABF65741EAA5ACF007775FF /* Score+CoreDataProperties.swift in Sources */,
 				6ABF654B1EAA1CCA007775FF /* iosProject.xcdatamodeld in Sources */,
+				6ABF656E1EAA55E4007775FF /* DatabaseController.swift in Sources */,
 				6ABF65431EAA1CCA007775FF /* AppDelegate.swift in Sources */,
+				6ABF65751EAA5ACF007775FF /* User+CoreDataClass.swift in Sources */,
+				6ABF656C1EAA335B007775FF /* MPCHandler.swift in Sources */,
+				6ABF656A1EAA3334007775FF /* TTTImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +456,7 @@
 				6ABF65611EAA1CCA007775FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6ABF65621EAA1CCA007775FF /* Build configuration list for PBXNativeTarget "iosProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -416,6 +465,7 @@
 				6ABF65641EAA1CCA007775FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

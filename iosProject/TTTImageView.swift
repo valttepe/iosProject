@@ -10,12 +10,21 @@ import UIKit
 
 class TTTImageView: UIImageView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    var player:String?
+    var activated:Bool! = false
+    
+    func setPlayer (_player:String) {
+        self.player = _player
+        
+        if activated == false {
+            if _player == "x" {
+                self.image = UIImage(named: "x")
+            }
+            else {
+                self.image = UIImage(named: "o")
+            }
+            activated = true
+        }
     }
-    */
 
 }
