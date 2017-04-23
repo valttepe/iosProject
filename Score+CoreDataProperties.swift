@@ -2,9 +2,8 @@
 //  Score+CoreDataProperties.swift
 //  iosProject
 //
-//  Created by iosdev on 21.4.2017.
+//  Created by iosdev on 23.4.2017.
 //  Copyright © 2017 iosdev. All rights reserved.
-//  This file was automatically generated and should not be edited.
 //
 
 import Foundation
@@ -17,10 +16,10 @@ extension Score {
         return NSFetchRequest<Score>(entityName: "Score");
     }
 
-    @NSManaged public var win: Int16
-    @NSManaged public var tie: Int16
     @NSManaged public var lose: Int16
-    @NSManaged public var player2: NSObject?
+    @NSManaged public var player2: String?
+    @NSManaged public var tie: Int16
+    @NSManaged public var win: Int16
     @NSManaged public var user: User?
 
 }
