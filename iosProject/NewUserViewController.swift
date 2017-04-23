@@ -75,15 +75,15 @@ class NewUserViewController: UIViewController{
         else {
             print("success")
             let deviceName: String = UIDevice.current.name
-//            let user:User = NSEntityDescription.insertNewObject(forEntityName: self.userClassName , into: DatabaseController.getContext()) as! User
-//            
-//            user.username = username
-//            user.device = deviceName
-//            user.password = password
-//            user.lose = 0
-//            user.tie = 0
-//            user.win = 0
-//            DatabaseController.saveContext()
+            let user:User = NSEntityDescription.insertNewObject(forEntityName: self.userClassName , into: DatabaseController.getContext()) as! User
+            
+            user.username = username
+            user.device = deviceName
+            user.password = password
+            user.lose = 0
+            user.tie = 0
+            user.win = 0
+            DatabaseController.saveContext()
             
             _ = navigationController?.popViewController(animated: true)
         }

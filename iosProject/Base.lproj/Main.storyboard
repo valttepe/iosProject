@@ -54,6 +54,9 @@
                                 <rect key="frame" x="168" y="318" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginButton:" destination="iu4-VS-SZ2" eventType="touchUpInside" id="BH8-h6-VOs"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B10-8H-h6J">
                                 <rect key="frame" x="16" y="168" width="343" height="30"/>

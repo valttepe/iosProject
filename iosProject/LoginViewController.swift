@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class LoginViewController: UIViewController {
     
@@ -29,6 +30,23 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func loginButton(_ sender: Any) {
+        let fetchRequest:NSFetchRequest<User> = User.fetchRequest()
+        
+        do {
+            let searchResults = try DatabaseController.getContext().fetch(fetchRequest)
+            print(searchResults.count)
+            
+            for result in searchResults as [User] {
+                print("User is \(result.username)!")
+            }
+        }
+        
+        catch {
+            print("Error: \(error)")
+        }
+        
+    }
     
     
 
