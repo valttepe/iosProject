@@ -15,10 +15,22 @@ class ViewController: UIViewController {
         backgroundColor()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        checkIfLogged()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func checkIfLogged () {
+        let check = UserDefaults.standard.bool(forKey: "LoggedIn")
+        
+        let userName = UserDefaults.standard.object(forKey: "User")
+        print(check)
+        print(userName!)
     }
     
     func backgroundColor() {

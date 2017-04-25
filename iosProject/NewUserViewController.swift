@@ -26,9 +26,9 @@ class NewUserViewController: UIViewController{
         
         rePasswordField.addTarget(self, action: #selector(didChangeText(textField:)), for: .editingChanged)
         
-        newUserField.layer.borderWidth = 1.0
-        passwordField.layer.borderWidth = 1.0
-        rePasswordField.layer.borderWidth = 1.0
+        
+        
+        
         
         // Do any additional setup after loading the view.
     }
@@ -42,10 +42,14 @@ class NewUserViewController: UIViewController{
         if textField.text == passwordField.text! {
             passwordField.layer.borderColor = self.greenColor.cgColor
             rePasswordField.layer.borderColor = self.greenColor.cgColor
+            passwordField.layer.borderWidth = 1.0
+            rePasswordField.layer.borderWidth = 1.0
             print("Yes")
         } else {
             passwordField.layer.borderColor = self.redColor.cgColor
             rePasswordField.layer.borderColor = self.redColor.cgColor
+            passwordField.layer.borderWidth = 1.0
+            rePasswordField.layer.borderWidth = 1.0
             
             
             print("no")
@@ -64,12 +68,15 @@ class NewUserViewController: UIViewController{
         
         if username.isEmpty {
             newUserField.layer.borderColor = self.redColor.cgColor
+            newUserField.layer.borderWidth = 1.0
         }
         else if password.isEmpty{
             passwordField.layer.borderColor = self.redColor.cgColor
+            passwordField.layer.borderWidth = 1.0
         }
         else if rePassword.isEmpty {
             rePasswordField.layer.borderColor = self.redColor.cgColor
+            rePasswordField.layer.borderWidth = 1.0
         }
         
         else {

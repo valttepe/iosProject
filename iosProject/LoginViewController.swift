@@ -33,14 +33,49 @@ class LoginViewController: UIViewController {
     @IBAction func loginButton(_ sender: Any) {
         let fetchRequest:NSFetchRequest<User> = User.fetchRequest()
         
+        let userFilter = userField.text!
+        
+        let passFilter = passField.text!
+        
+        let userPredicate = NSPredicate(format: "username = %@", userFilter)
+        let passPredicate = NSPredicate(format: "password = %@", passFilter)
+        
+        let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [userPredicate, passPredicate])
+        fetchRequest.predicate = andPredicate
+        
+        //fetchRequest.predicate = NSPredicate(format: "username == %@" , userFilter)
+        
         do {
             let searchResults = try DatabaseController.getContext().fetch(fetchRequest)
             print(searchResults.count)
             
-            for result in searchResults as [User] {
-                print("User is \(result.username)!")
+            if searchResults.count == 0 {
+                print("There was no such user")
+                let alert = UIAlertController(title: "Invalid", message: "Username or password is incorrect", preferredStyle: UIAlertControllerStyle.alert)
+                
+                
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }
-        }
+            
+            else {
+                for result in searchResults as [User] {
+                    print("User is \(result.username!)")
+                    
+                    if result.username == userField.text! && result.password == userField.text! {
+                        print("Login was success")
+                        
+                        UserDefaults.standard.set(true, forKey: "LoggedIn")
+                        UserDefaults.standard.setValue(result.username, forKey: "User")
+                        _ = navigationController?.popViewController(animated: true)
+                        
+                    }
+                    
+                }
+            }
+            
+            
+                    }
         
         catch {
             print("Error: \(error)")
