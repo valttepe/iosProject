@@ -461,9 +461,10 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="LoseStreak" destination="u4M-GV-Lcy" id="cfo-WY-HsF"/>
-                                    <outlet property="nameLabel" destination="6LJ-8k-zkC" id="aZG-S6-3K9"/>
-                                    <outlet property="tieStreak" destination="zLG-fM-3Q1" id="3kS-Yd-z5N"/>
-                                    <outlet property="winStreak" destination="Og1-tQ-lFE" id="2p7-Gs-DB5"/>
+                                    <outlet property="loseStreak" destination="u4M-GV-Lcy" id="Glb-HF-J9B"/>
+                                    <outlet property="nameLabel" destination="6LJ-8k-zkC" id="pYm-qT-Ijv"/>
+                                    <outlet property="tieStreak" destination="zLG-fM-3Q1" id="8wL-pp-eO4"/>
+                                    <outlet property="winStreak" destination="Og1-tQ-lFE" id="Q8e-ex-Env"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

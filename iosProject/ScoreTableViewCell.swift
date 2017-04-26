@@ -13,7 +13,7 @@ class ScoreTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var winStreak: UILabel!
     @IBOutlet weak var tieStreak: UILabel!
-    @IBOutlet weak var LoseStreak: UILabel!
+    @IBOutlet weak var loseStreak: UILabel!
     
 
     override func awakeFromNib() {

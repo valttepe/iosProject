@@ -96,8 +96,6 @@ class ScoreTableViewController: UITableViewController {
     }
     */
     
-    //MARK: Private Methods
-    
     private func loadScores() {
         
     }
