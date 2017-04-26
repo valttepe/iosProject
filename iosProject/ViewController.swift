@@ -25,12 +25,20 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    // TODO: make sure that it doesn't use values if not logged in
     func checkIfLogged () {
         let check = UserDefaults.standard.bool(forKey: "LoggedIn")
         
-        let userName = UserDefaults.standard.object(forKey: "User")
-        print(check)
-        print(userName!)
+        if check == true{
+            let userName = UserDefaults.standard.object(forKey: "User")
+            print(check)
+            print(userName!)
+            
+            
+        }
+        
+        
     }
     
     func backgroundColor() {
