@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        checkIfLogged()
+        //checkIfLogged()
     }
 
     override func didReceiveMemoryWarning() {

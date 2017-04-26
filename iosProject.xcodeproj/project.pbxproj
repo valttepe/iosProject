@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A1310B51EB07DBB004B56C0 /* ScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1310B41EB07DBB004B56C0 /* ScoreTableViewCell.swift */; };
+		6A1310B71EB088B9004B56C0 /* ScoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1310B61EB088B9004B56C0 /* ScoreTableViewController.swift */; };
 		6ABF65431EAA1CCA007775FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF65421EAA1CCA007775FF /* AppDelegate.swift */; };
 		6ABF65451EAA1CCA007775FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF65441EAA1CCA007775FF /* ViewController.swift */; };
 		6ABF65481EAA1CCA007775FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ABF65461EAA1CCA007775FF /* Main.storyboard */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6A1310B41EB07DBB004B56C0 /* ScoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScoreTableViewCell.swift; path = ../ScoreTableViewCell.swift; sourceTree = "<group>"; };
+		6A1310B61EB088B9004B56C0 /* ScoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScoreTableViewController.swift; path = ../ScoreTableViewController.swift; sourceTree = "<group>"; };
 		6ABF653F1EAA1CCA007775FF /* iosProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ABF65421EAA1CCA007775FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6ABF65441EAA1CCA007775FF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +114,8 @@
 				6ABF65671EAA32CF007775FF /* TicTacToeViewController.swift */,
 				6ABF657A1EACD9EB007775FF /* LoginViewController.swift */,
 				6ABF65691EAA3334007775FF /* TTTImageView.swift */,
+				6A1310B61EB088B9004B56C0 /* ScoreTableViewController.swift */,
+				6A1310B41EB07DBB004B56C0 /* ScoreTableViewCell.swift */,
 				6ABF657C1EACF15E007775FF /* RSPViewController.swift */,
 				6ABF65781EAA6725007775FF /* NewUserViewController.swift */,
 				6ABF656B1EAA335B007775FF /* MPCHandler.swift */,
@@ -248,7 +254,9 @@
 			files = (
 				6ABF657B1EACD9EB007775FF /* LoginViewController.swift in Sources */,
 				6ABF65791EAA6725007775FF /* NewUserViewController.swift in Sources */,
+				6A1310B51EB07DBB004B56C0 /* ScoreTableViewCell.swift in Sources */,
 				6ABF65941EACFC26007775FF /* User+CoreDataClass.swift in Sources */,
+				6A1310B71EB088B9004B56C0 /* ScoreTableViewController.swift in Sources */,
 				6ABF65451EAA1CCA007775FF /* ViewController.swift in Sources */,
 				6ABF65971EACFC26007775FF /* Score+CoreDataProperties.swift in Sources */,
 				6ABF65961EACFC26007775FF /* Score+CoreDataClass.swift in Sources */,
