@@ -13,6 +13,7 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
     
     @IBOutlet var fields: [TTTImageView]!
     
+    @IBOutlet weak var turnPlayer: UILabel!
     //who's turn is it
     var currentPlayer:String!
     
@@ -22,11 +23,18 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
     //Call for appDelegate.swift
     var appDelegate:AppDelegate!
     
+    var turnCheck:Bool = true
+    var you:String?
+    
+    var opponent:String?
+    var opponentMark:String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //Init for appdelegate
         appDelegate = UIApplication.shared.delegate as! AppDelegate
         
+        self.you = appDelegate.scoreHandler.getYourself()
         
         // Sets peer name with phones own device name
         appDelegate.mpcHandler.setupPeerWithDisplayName(displayName: UIDevice.current.name)
@@ -48,6 +56,59 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
         //Tells that first player is x
         currentPlayer = "x"
     }
+
+    
+    
+    @IBAction func rageQuit(_ sender: Any) {
+        
+        let refreshAlert = UIAlertController(title: "Rage quit", message: "You will lose the game.", preferredStyle: UIAlertControllerStyle.alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            
+            self.changeToMain()
+            print("Handle Ok logic here")
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Handle Cancel Logic here")
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
+        
+    }
+    
+    func changeToMain () {
+        let messageDict = ["string":"quit"] as [String : Any]
+        
+        let messageData = try? JSONSerialization.data(withJSONObject: messageDict, options: JSONSerialization.WritingOptions.prettyPrinted)
+        
+        
+        do {
+            try appDelegate.mpcHandler.session.send(messageData!, toPeers: appDelegate.mpcHandler.session.connectedPeers, with: .reliable)
+        }
+            
+        catch let error {
+            NSLog("error is :  \(error)")
+        }
+        let when = DispatchTime.now() + 2 // change 2 to desired number of seconds
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            // Your code with delay
+            
+            self.appDelegate.mpcHandler.session.disconnect()
+            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") else {
+                print("View controller toMain not found")
+                return
+            }
+            let navigationController = UINavigationController(rootViewController: vc)
+            self.present(navigationController, animated: true, completion: nil)
+        }
+        
+        
+    }
+
+    
+    
+    
     
 
     // Bluetooth connection button
@@ -69,10 +130,14 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
             self.navigationItem.title = "Connected"
         }
         
+        print(state)
+        
+        
     }
     
     // Gets data with notification
     func handleReceivedDataWithNotification(notification: NSNotification) {
+        
         // takes userInfo from the notification
         let userInfo = notification.userInfo! as Dictionary
         
@@ -90,19 +155,28 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
         
         
         // If there is new game call in message then it sends alert which tells when other player has started new game
-        if (message?.object(forKey: "string") as AnyObject).isEqual("New Game") == true{
-            let alert = UIAlertController(title: "TicTacToe", message: "\(senderDisplayName) has started a new Game", preferredStyle: UIAlertControllerStyle.alert)
+        if (message?.object(forKey: "string") as AnyObject).isEqual("quit") == true{
+            
+            let alert = UIAlertController(title: "TicTacToe", message: "\(senderDisplayName) has left the game", preferredStyle: UIAlertControllerStyle.alert)
             
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
         else {
+            //Takes opponent name
+            self.opponent = message?.object(forKey: "opponent") as? String
+            
+            self.opponentMark = message?.object(forKey: "player") as? String
+            
+            self.turnCheck = true
             
             // takes field tag number from message
             var field:Int? = message?.object(forKey: "field") as! Int?
             
             // takes player mark x or o
             var player:String? = message?.object(forKey: "player") as? String
+            
+            self.turnPlayer.text = "It is your turn"
             
             // Checks that player and field are there
             if field != nil && player != nil {
@@ -130,7 +204,7 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
     
     //tracks if someone tapps field
     func fieldTapped(recognizer:UITapGestureRecognizer) {
-        
+        //Checks that if player is connected
         if appDelegate.mpcHandler.session.connectedPeers.count == 0 {
             print("This is the problem")
             let alert = UIAlertController(title: "Error", message: "You must connect before playing", preferredStyle: UIAlertControllerStyle.alert)
@@ -139,11 +213,13 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
-        else {
+        //Sets player marking in the field and sends notification to other player
+        else if self.turnCheck == true {
             let tappedField = recognizer.view as! TTTImageView
             tappedField.setPlayer(_player: currentPlayer)
+            let opponent = appDelegate.scoreHandler.getYourself()
             
-            let messageDict = ["field":tappedField.tag, "player":currentPlayer] as [String : Any]
+            let messageDict = ["field":tappedField.tag, "player":currentPlayer,"opponent":opponent] as [String : Any]
             
             let messageData = try? JSONSerialization.data(withJSONObject: messageDict, options: JSONSerialization.WritingOptions.prettyPrinted)
             
@@ -156,14 +232,24 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
                 NSLog("error is :  \(error)")
             }
             
+            self.turnCheck = false
             // CheckResult
             checkResults()
             
+        }
+        else {
+            let alert = UIAlertController(title: "Error", message: "You must connect before playing", preferredStyle: UIAlertControllerStyle.alert)
+            
+            
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
         
     }
     
     func setupField () {
+        
+        //Enables tapping in the field
         for index in 0 ... fields.count - 1 {
             let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TicTacToeViewController.fieldTapped))
             gestureRecognizer.numberOfTapsRequired = 1
@@ -173,13 +259,15 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
     }
     
     func resetField() {
+        //Returns game to start state
         for index in 0 ... fields.count - 1 {
             fields[index].image = nil
             fields[index].activated = false
             fields[index].player = ""
         }
-        currentPlayer = "x"
-        count = 0
+        self.currentPlayer = "x"
+        self.count = 0
+        self.turnCheck = true
     }
     
     func checkResults () {
@@ -227,10 +315,32 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
         print(count)
         
         
+        if winner == opponentMark {
+            let alert = UIAlertController(title: "Tic Tac Toe", message: "The winner is \(self.opponent) with \(winner)", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (alert:UIAlertAction!) -> Void in
+                //self.appDelegate.scoreHandler.getOpponent(name: self.opponent!)
+                self.resetField()
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+            
+        }
+        if winner != "" && winner != opponentMark {
+            let alert = UIAlertController(title: "Tic Tac Toe", message: "Y The winner is \(self.you) with \(winner)", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (alert:UIAlertAction!) -> Void in
+                //self.appDelegate.scoreHandler.getOpponent(name: self.opponent!)
+                self.resetField()
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        
         if winner != ""{
             
             let alert = UIAlertController(title: "Tic Tac Toe", message: "The winner is \(winner)", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (alert:UIAlertAction!) -> Void in
+                //self.appDelegate.scoreHandler.getOpponent(name: self.opponent!)
                 self.resetField()
             }))
             
@@ -247,10 +357,12 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
         }
     }
     
+    //Done button in bluetooth connection making view
     func browserViewControllerDidFinish(_ browserViewController: MCBrowserViewController) {
         appDelegate.mpcHandler.browser.dismiss(animated: true, completion: nil)
     }
     
+    //Cancel button in bluetooth connection making
     func browserViewControllerWasCancelled(_ browserViewController: MCBrowserViewController) {
         appDelegate.mpcHandler.browser.dismiss(animated: true, completion: nil)
     }

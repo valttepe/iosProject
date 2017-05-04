@@ -40,6 +40,9 @@ class MPCHandler: NSObject, MCSessionDelegate {
         }
     }
     
+    
+    
+    
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
         let userInfo = ["peerID":peerID, "state":state.rawValue] as [String : Any]
         DispatchQueue.main.async { [unowned self] in

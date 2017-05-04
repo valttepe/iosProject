@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var loginText: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundColor()
@@ -17,7 +19,7 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //checkIfLogged()
+        checkIfLogged()
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,11 +33,15 @@ class ViewController: UIViewController {
         let check = UserDefaults.standard.bool(forKey: "LoggedIn")
         
         if check == true{
-            let userName = UserDefaults.standard.object(forKey: "User")
+            let userName:String = UserDefaults.standard.object(forKey: "User") as! String
             print(check)
-            print(userName!)
+            print(userName)
+            self.loginText.text = "Logged in as \(userName)"
             
             
+        }
+        else {
+            self.loginText.text = "Logged in as Guest"
         }
         
         

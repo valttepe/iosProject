@@ -92,7 +92,15 @@ class NewUserViewController: UIViewController{
             user.win = 0
             DatabaseController.saveContext()
             
-            _ = navigationController?.popViewController(animated: true)
+            UserDefaults.standard.set(true, forKey: "LoggedIn")
+            UserDefaults.standard.setValue(username, forKey: "User")
+            
+            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") else {
+                print("View controller toMain not found")
+                return
+            }
+            let navigationController = UINavigationController(rootViewController: vc)
+            self.present(navigationController, animated: true, completion: nil)
         }
         
         

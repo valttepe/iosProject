@@ -28,6 +28,7 @@
 		6ABF65951EACFC26007775FF /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF65911EACFC26007775FF /* User+CoreDataProperties.swift */; };
 		6ABF65961EACFC26007775FF /* Score+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF65921EACFC26007775FF /* Score+CoreDataClass.swift */; };
 		6ABF65971EACFC26007775FF /* Score+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABF65931EACFC26007775FF /* Score+CoreDataProperties.swift */; };
+		6AFAFD6D1EB8AEDC006F812B /* ScoreHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFAFD6C1EB8AEDC006F812B /* ScoreHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		6ABF65911EACFC26007775FF /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "User+CoreDataProperties.swift"; path = "../User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6ABF65921EACFC26007775FF /* Score+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Score+CoreDataClass.swift"; path = "../Score+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6ABF65931EACFC26007775FF /* Score+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Score+CoreDataProperties.swift"; path = "../Score+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6AFAFD6C1EB8AEDC006F812B /* ScoreHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				6ABF65671EAA32CF007775FF /* TicTacToeViewController.swift */,
 				6ABF657A1EACD9EB007775FF /* LoginViewController.swift */,
 				6A1310BA1EB08E1A004B56C0 /* ScoreTableViewCell.swift */,
+				6AFAFD6C1EB8AEDC006F812B /* ScoreHandler.swift */,
 				6A1310BC1EB08E39004B56C0 /* ScoreTableViewController.swift */,
 				6ABF65691EAA3334007775FF /* TTTImageView.swift */,
 				6ABF657C1EACF15E007775FF /* RSPViewController.swift */,
@@ -259,6 +262,7 @@
 				6A1310BD1EB08E39004B56C0 /* ScoreTableViewController.swift in Sources */,
 				6ABF65451EAA1CCA007775FF /* ViewController.swift in Sources */,
 				6ABF65971EACFC26007775FF /* Score+CoreDataProperties.swift in Sources */,
+				6AFAFD6D1EB8AEDC006F812B /* ScoreHandler.swift in Sources */,
 				6ABF65961EACFC26007775FF /* Score+CoreDataClass.swift in Sources */,
 				6ABF65661EAA2AC7007775FF /* ChooseViewController.swift in Sources */,
 				6ABF65681EAA32CF007775FF /* TicTacToeViewController.swift in Sources */,

@@ -65,6 +65,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbu-LO-XhP">
+                                <rect key="frame" x="159" y="373" width="57" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Register"/>
+                                <connections>
+                                    <segue destination="v10-hn-9bF" kind="show" id="TxL-Bg-54V"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -165,7 +173,7 @@
         <!--Solver-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="iosProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="iosProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -175,7 +183,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OcZ-yg-g5T">
-                                <rect key="frame" x="16" y="99" width="343" height="569"/>
+                                <rect key="frame" x="16" y="99" width="343" height="465"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you have a problem?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yec-WN-Ii9">
                                         <rect key="frame" x="79.5" y="0.0" width="184" height="20.5"/>
@@ -209,28 +217,15 @@
                                             <segue destination="Uz8-k8-5Oz" kind="show" id="tbp-SX-FUC"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are logged in as guest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0LB-Y7-QRV">
-                                        <rect key="frame" x="71" y="472.5" width="201.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khy-yN-AZ4">
-                                        <rect key="frame" x="152.5" y="501" width="38" height="30"/>
-                                        <state key="normal" title="Login"/>
-                                        <connections>
-                                            <segue destination="iu4-VS-SZ2" kind="show" id="GWe-fL-Zd3"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="taN-wd-68W">
-                                        <rect key="frame" x="143" y="539" width="57" height="30"/>
-                                        <state key="normal" title="Register"/>
-                                        <connections>
-                                            <segue destination="v10-hn-9bF" kind="show" id="Jwe-AQ-YEh"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You are logged in as guest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0LB-Y7-QRV">
+                                <rect key="frame" x="16" y="72" width="201.5" height="20.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -239,7 +234,16 @@
                             <constraint firstItem="OcZ-yg-g5T" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="32" id="u5a-TV-1qg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Solver" id="1iY-Te-rQR"/>
+                    <navigationItem key="navigationItem" title="Solver" id="1iY-Te-rQR">
+                        <barButtonItem key="leftBarButtonItem" title="Login" id="PHk-E9-kEu">
+                            <connections>
+                                <segue destination="iu4-VS-SZ2" kind="show" id="roj-Fi-5yI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="loginText" destination="0LB-Y7-QRV" id="IdZ-5X-tGD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -365,11 +369,22 @@
                                 <rect key="frame" x="266" y="462" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This players turn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZU-Ql-G1e">
+                                <rect key="frame" x="123" y="88" width="128" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Tic Tac Toe" id="YRF-sS-raH">
-                        <barButtonItem key="leftBarButtonItem" title="Rage quit" id="lAi-Vz-HRi"/>
+                        <barButtonItem key="leftBarButtonItem" title="Rage quit" id="lAi-Vz-HRi">
+                            <connections>
+                                <action selector="rageQuit:" destination="sfX-DB-HvT" id="cjv-WM-TKa"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Connect" id="2EN-cP-j3G">
                             <connections>
                                 <action selector="connectWithPlayer:" destination="sfX-DB-HvT" id="SeX-4y-PEF"/>
@@ -377,6 +392,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="turnPlayer" destination="OZU-Ql-G1e" id="oP2-km-WMY"/>
                         <outletCollection property="fields" destination="19X-0t-wRc" collectionClass="NSMutableArray" id="P7H-ge-YEJ"/>
                         <outletCollection property="fields" destination="tCt-pj-ynl" collectionClass="NSMutableArray" id="T1T-M2-wtf"/>
                         <outletCollection property="fields" destination="bbY-q6-gX8" collectionClass="NSMutableArray" id="QrJ-sq-97K"/>
@@ -390,7 +406,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1AN-hE-LSJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3218" y="-287"/>
+            <point key="canvasLocation" x="3217" y="-287"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="mzh-56-or2">
@@ -405,7 +421,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EMy-PN-6I4" id="4qo-en-Zdx">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User - Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6LJ-8k-zkC">
@@ -476,12 +492,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dUn-Rk-kP9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="840.79999999999995" y="1565.6671664167918"/>
+            <point key="canvasLocation" x="881" y="1582"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sBp-eN-aLA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UKS-Bu-u2y" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="toMain" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UKS-Bu-u2y" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Tvu-gl-HoZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
