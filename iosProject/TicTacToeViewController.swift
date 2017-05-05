@@ -316,7 +316,7 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
         
         
         if winner == opponentMark {
-            let alert = UIAlertController(title: "Tic Tac Toe", message: "The winner is \(self.opponent) with \(winner)", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "Tic Tac Toe", message: "The winner is \(self.opponent!) with \(winner)", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (alert:UIAlertAction!) -> Void in
                 //self.appDelegate.scoreHandler.getOpponent(name: self.opponent!)
                 self.resetField()
@@ -326,7 +326,7 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
             
         }
         if winner != "" && winner != opponentMark {
-            let alert = UIAlertController(title: "Tic Tac Toe", message: "Y The winner is \(self.you) with \(winner)", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "Tic Tac Toe", message: "Y The winner is \(self.you!) with \(winner)", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (alert:UIAlertAction!) -> Void in
                 //self.appDelegate.scoreHandler.getOpponent(name: self.opponent!)
                 self.resetField()
