@@ -12,6 +12,7 @@ class ChooseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        backgroundColor()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -32,5 +33,8 @@ class ChooseViewController: UIViewController {
         print("Random pressed")
     }
     
-
+    func backgroundColor() {
+        let backColor = UIColor(red: 30/255.0, green: 30/255.0, blue: 30/255.0, alpha: 1.0)
+        view.backgroundColor = backColor
+    }
 }

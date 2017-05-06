@@ -13,9 +13,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var loginText: UILabel!
     @IBOutlet weak var scoresButton: UIButton!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundColor()
+        
         //self.scoresButton.layer.cornerRadius = 8
         // Do any additional setup after loading the view, typically from a nib.
     }

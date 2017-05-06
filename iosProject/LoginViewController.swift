@@ -13,14 +13,16 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var userField: UITextField!
     @IBOutlet weak var passField: UITextField!
-    
-    let redColor: UIColor = UIColor.red
+    @IBOutlet weak var loginButton: UIButton!
+   
+    //Testing
+    var appDelegate:AppDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        userField.layer.borderWidth = 1.0
-        passField.layer.borderWidth = 1.0
+        backgroundColor()
+        self.loginButton.layer.cornerRadius = 4
+        appDelegate = UIApplication.shared.delegate as! AppDelegate
 
         // Do any additional setup after loading the view.
     }
@@ -29,6 +31,18 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBAction func TieButton(_ sender: Any) {
+        appDelegate.scoreHandler.getResultsFromGame(name: "TestOpponent", res: "Tie")
+    }
+    
+    @IBAction func WinButton(_ sender: Any) {
+        appDelegate.scoreHandler.getResultsFromGame(name: "TestOpponent", res: "Win")
+    }
+    
+    @IBAction func LoseButton(_ sender: Any) {
+        appDelegate.scoreHandler.getResultsFromGame(name: "TestOpponent1", res: "Lose")
+    }
+    
     
     @IBAction func loginButton(_ sender: Any) {
         let fetchRequest:NSFetchRequest<User> = User.fetchRequest()
@@ -84,7 +98,10 @@ class LoginViewController: UIViewController {
     }
     
     
-
+    func backgroundColor() {
+        let backColor = UIColor(red: 30/255.0, green: 30/255.0, blue: 30/255.0, alpha: 1.0)
+        view.backgroundColor = backColor
+    }
     /*
     // MARK: - Navigation
 

@@ -14,6 +14,7 @@ class NewUserViewController: UIViewController{
     @IBOutlet weak var newUserField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var rePasswordField: UITextField!
+    @IBOutlet weak var registerButton: UIButton!
     
     let greenColor: UIColor = UIColor.green
     let redColor: UIColor = UIColor.red
@@ -23,7 +24,8 @@ class NewUserViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        backgroundColor()
+        self.registerButton.layer.cornerRadius = 4
         rePasswordField.addTarget(self, action: #selector(didChangeText(textField:)), for: .editingChanged)
         
         
@@ -32,6 +34,7 @@ class NewUserViewController: UIViewController{
         
         // Do any additional setup after loading the view.
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -62,11 +65,11 @@ class NewUserViewController: UIViewController{
     @IBAction func createButton(_ sender: UIButton) {
         print(self.newUserField.text!)
         
-        var username = self.newUserField.text!
-        var password = self.passwordField.text!
-        var rePassword = self.rePasswordField.text!
+        let username = self.newUserField.text!
+        let password = self.passwordField.text!
+        let rePassword = self.rePasswordField.text!
         
-        if username.isEmpty {
+        if username.isEmpty || username == "Guest"{
             newUserField.layer.borderColor = self.redColor.cgColor
             newUserField.layer.borderWidth = 1.0
         }
@@ -107,7 +110,10 @@ class NewUserViewController: UIViewController{
         
     }
     
-    
+    func backgroundColor() {
+        let backColor = UIColor(red: 30/255.0, green: 30/255.0, blue: 30/255.0, alpha: 1.0)
+        view.backgroundColor = backColor
+    }
     
     /*
     // MARK: - Navigation

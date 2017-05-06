@@ -13,7 +13,7 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
     
     @IBOutlet var fields: [TTTImageView]!
     
-    @IBOutlet weak var turnPlayer: UILabel!
+    //@IBOutlet weak var turnPlayer: UILabel!
     //who's turn is it
     var currentPlayer:String!
     
@@ -23,14 +23,20 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
     //Call for appDelegate.swift
     var appDelegate:AppDelegate!
     
+    // checks whose turn it is
     var turnCheck:Bool = true
+    // your username
     var you:String?
     
+    //opponent username
     var opponent:String?
+    
+    //opponent mark o or x
     var opponentMark:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        backgroundColor()
         //Init for appdelegate
         appDelegate = UIApplication.shared.delegate as! AppDelegate
         
@@ -45,9 +51,9 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
         //shows your own device name to others
         appDelegate.mpcHandler.advertiseSelf(advertise: true)
         
-        //Starts listen notification
+        //Starts listen notification for bluetooth connection
         NotificationCenter.default.addObserver(self, selector: #selector(TicTacToeViewController.peerChangedStateWithNotification), name:  NSNotification.Name(rawValue: "MPC_DidChangeStateNotification"), object: nil)
-        
+        //Starts listen notification for receiving data from other player
         NotificationCenter.default.addObserver(self, selector: #selector(TicTacToeViewController.handleReceivedDataWithNotification), name: NSNotification.Name(rawValue: "MPC_DidReceiveDataNotification") , object: nil)
         
         // Tap gestures and stuff
@@ -60,10 +66,11 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
     
     
     @IBAction func rageQuit(_ sender: Any) {
+        //alert that uses changeToMain if user chooses OK
         
         let refreshAlert = UIAlertController(title: "Rage quit", message: "You will lose the game.", preferredStyle: UIAlertControllerStyle.alert)
         
-        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+        refreshAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
             
             self.changeToMain()
             print("Handle Ok logic here")
@@ -95,6 +102,7 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
             // Your code with delay
             
             self.appDelegate.mpcHandler.session.disconnect()
+            //code for the change to main view without losing that navigation bar
             guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") else {
                 print("View controller toMain not found")
                 return
@@ -176,7 +184,7 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
             // takes player mark x or o
             var player:String? = message?.object(forKey: "player") as? String
             
-            self.turnPlayer.text = "It is your turn"
+            //self.turnPlayer.text = "It is your turn"
             
             // Checks that player and field are there
             if field != nil && player != nil {
@@ -219,6 +227,7 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
             tappedField.setPlayer(_player: currentPlayer)
             let opponent = appDelegate.scoreHandler.getYourself()
             
+            // Sends field that you have tapped and your mark o or x and also your username
             let messageDict = ["field":tappedField.tag, "player":currentPlayer,"opponent":opponent] as [String : Any]
             
             let messageData = try? JSONSerialization.data(withJSONObject: messageDict, options: JSONSerialization.WritingOptions.prettyPrinted)
@@ -238,6 +247,7 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
             
         }
         else {
+            //if there isn't connection to other player
             let alert = UIAlertController(title: "Error", message: "You must connect before playing", preferredStyle: UIAlertControllerStyle.alert)
             
             
@@ -307,14 +317,14 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
         }else if fields[2].player == "o" && fields[4].player == "o" && fields[6].player == "o"{
             winner = "o"
         }
-        
+        //This is counter for checking tie
         count = count + 1
         
         
         
         print(count)
         
-        
+        // Checks if you or opponent wins ar
         if winner == opponentMark {
             let alert = UIAlertController(title: "Tic Tac Toe", message: "The winner is \(self.opponent!) with \(winner)", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (alert:UIAlertAction!) -> Void in
@@ -336,16 +346,18 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
         }
         
         
-        if winner != ""{
-            
-            let alert = UIAlertController(title: "Tic Tac Toe", message: "The winner is \(winner)", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (alert:UIAlertAction!) -> Void in
-                //self.appDelegate.scoreHandler.getOpponent(name: self.opponent!)
-                self.resetField()
-            }))
-            
-            self.present(alert, animated: true, completion: nil)
-        }
+//        if winner != ""{
+//            
+//            let alert = UIAlertController(title: "Tic Tac Toe", message: "The winner is \(winner)", preferredStyle: UIAlertControllerStyle.alert)
+//            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (alert:UIAlertAction!) -> Void in
+//                //self.appDelegate.scoreHandler.getOpponent(name: self.opponent!)
+//                self.resetField()
+//            }))
+//            
+//            self.present(alert, animated: true, completion: nil)
+//        }
+        
+        // if game is tie and no winner is found
         
         if winner == "" && count == 9{
             let alert = UIAlertController(title: "Tic Tac Toe", message: "The game has ended as tie", preferredStyle: UIAlertControllerStyle.alert)
@@ -372,6 +384,12 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func backgroundColor() {
+        let backColor = UIColor(red: 30/255.0, green: 30/255.0, blue: 30/255.0, alpha: 1.0)
+        view.backgroundColor = backColor
+    }
+
     
 
     
