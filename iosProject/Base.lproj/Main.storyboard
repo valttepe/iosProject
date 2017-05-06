@@ -368,7 +368,7 @@
                                         </connections>
                                     </imageView>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="150" placeholderIntrinsicHeight="150" image="RockPS" translatesAutoresizingMaskIntoConstraints="NO" id="v26-63-yrG">
-                                        <rect key="frame" x="10" y="211" width="184" height="184"/>
+                                        <rect key="frame" x="9.5" y="211" width="184" height="184"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="v26-63-yrG" secondAttribute="height" multiplier="1:1" id="9vx-fh-uFg"/>
@@ -378,7 +378,7 @@
                                         </connections>
                                     </imageView>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="150" placeholderIntrinsicHeight="150" image="Random" translatesAutoresizingMaskIntoConstraints="NO" id="LQq-zV-UU5">
-                                        <rect key="frame" x="27" y="403" width="150" height="150"/>
+                                        <rect key="frame" x="26.5" y="403" width="150" height="150"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="LQq-zV-UU5" secondAttribute="height" multiplier="1:1" id="6ug-Nm-Isw"/>
@@ -432,87 +432,97 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="field" translatesAutoresizingMaskIntoConstraints="NO" id="Rpa-ye-G3f">
-                                <rect key="frame" x="56" y="182" width="263" height="302"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="field" translatesAutoresizingMaskIntoConstraints="NO" id="Rpa-ye-G3f">
+                                <rect key="frame" x="56" y="120" width="263" height="302"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Rpa-ye-G3f" secondAttribute="height" multiplier="263:302" id="8hY-4f-Rmt"/>
+                                </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="vCc-6n-GJ3">
-                                <rect key="frame" x="56" y="184" width="271" height="291"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ndk-eU-fAn">
+                                <rect key="frame" x="67" y="145" width="240" height="60"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="qlP-7u-Dsy">
-                                        <rect key="frame" x="1" y="0.0" width="269" height="60.5"/>
-                                        <subviews>
-                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="60" placeholderIntrinsicHeight="60" image="o" translatesAutoresizingMaskIntoConstraints="NO" id="19X-0t-wRc" customClass="TTTImageView" customModule="iosProject" customModuleProvider="target">
-                                                <rect key="frame" x="0.5" y="0.0" width="60.5" height="60.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="19X-0t-wRc" secondAttribute="height" multiplier="1:1" id="zA8-hw-Yok"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="60" placeholderIntrinsicHeight="60" image="x" translatesAutoresizingMaskIntoConstraints="NO" id="tCt-pj-ynl" customClass="TTTImageView" customModule="iosProject" customModuleProvider="target">
-                                                <rect key="frame" x="105" y="0.0" width="60" height="60.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="tCt-pj-ynl" secondAttribute="height" multiplier="1:1" id="Yeu-FM-fMr"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="60" placeholderIntrinsicHeight="60" image="o" translatesAutoresizingMaskIntoConstraints="NO" id="bbY-q6-gX8" customClass="TTTImageView" customModule="iosProject" customModuleProvider="target">
-                                                <rect key="frame" x="209" y="0.0" width="60.5" height="60.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="bbY-q6-gX8" secondAttribute="height" multiplier="1:1" id="2Ti-Jh-wTW"/>
-                                                </constraints>
-                                            </imageView>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="8ea-ui-Xh9">
-                                        <rect key="frame" x="0.0" y="115.5" width="270.5" height="60"/>
-                                        <subviews>
-                                            <imageView tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="60" placeholderIntrinsicHeight="60" image="x" translatesAutoresizingMaskIntoConstraints="NO" id="Psa-LI-7em" customClass="TTTImageView" customModule="iosProject" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="62" height="60"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="Psa-LI-7em" secondAttribute="height" multiplier="31:30" id="jfU-96-DTG"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="60" placeholderIntrinsicHeight="60" image="o" translatesAutoresizingMaskIntoConstraints="NO" id="cqJ-cn-B48" customClass="TTTImageView" customModule="iosProject" customModuleProvider="target">
-                                                <rect key="frame" x="106" y="0.0" width="60.5" height="60"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="cqJ-cn-B48" secondAttribute="height" multiplier="1:1" id="Vbh-cM-LdO"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="60" placeholderIntrinsicHeight="60" image="o" translatesAutoresizingMaskIntoConstraints="NO" id="O4m-nh-ctZ" customClass="TTTImageView" customModule="iosProject" customModuleProvider="target">
-                                                <rect key="frame" x="210.5" y="0.0" width="60" height="60"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="O4m-nh-ctZ" secondAttribute="height" multiplier="1:1" id="59q-Ec-Qsr"/>
-                                                </constraints>
-                                            </imageView>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="54y-25-xlT">
-                                        <rect key="frame" x="0.0" y="230.5" width="270.5" height="60"/>
-                                        <subviews>
-                                            <imageView tag="6" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="60" placeholderIntrinsicHeight="60" image="x" translatesAutoresizingMaskIntoConstraints="NO" id="d6z-O0-ndk" customClass="TTTImageView" customModule="iosProject" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="62" height="60"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="d6z-O0-ndk" secondAttribute="height" multiplier="31:30" id="Otx-Qa-AAd"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView tag="7" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="60" placeholderIntrinsicHeight="60" image="o" translatesAutoresizingMaskIntoConstraints="NO" id="40z-Yy-gh9" customClass="TTTImageView" customModule="iosProject" customModuleProvider="target">
-                                                <rect key="frame" x="106" y="0.0" width="60.5" height="60"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="40z-Yy-gh9" secondAttribute="height" multiplier="1:1" id="IUD-Sf-rHL"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView tag="8" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="60" placeholderIntrinsicHeight="60" image="x" translatesAutoresizingMaskIntoConstraints="NO" id="pcx-fb-CNw" customClass="TTTImageView" customModule="iosProject" customModuleProvider="target">
-                                                <rect key="frame" x="210.5" y="0.0" width="60" height="60"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="pcx-fb-CNw" secondAttribute="height" multiplier="1:1" id="fBt-U1-muu"/>
-                                                </constraints>
-                                            </imageView>
-                                        </subviews>
-                                    </stackView>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="60" placeholderIntrinsicHeight="60" translatesAutoresizingMaskIntoConstraints="NO" id="19X-0t-wRc" customClass="TTTImageView" customModule="iosProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="19X-0t-wRc" secondAttribute="height" multiplier="1:1" id="ku8-XF-ITP"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="60" placeholderIntrinsicHeight="60" translatesAutoresizingMaskIntoConstraints="NO" id="tCt-pj-ynl" customClass="TTTImageView" customModule="iosProject" customModuleProvider="target">
+                                        <rect key="frame" x="90" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="tCt-pj-ynl" secondAttribute="height" multiplier="1:1" id="fYN-XL-KVY"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="60" placeholderIntrinsicHeight="60" translatesAutoresizingMaskIntoConstraints="NO" id="bbY-q6-gX8" customClass="TTTImageView" customModule="iosProject" customModuleProvider="target">
+                                        <rect key="frame" x="180" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="bbY-q6-gX8" secondAttribute="height" multiplier="1:1" id="Gsa-BJ-ugi"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="pNo-91-mCG">
+                                <rect key="frame" x="67" y="246" width="240" height="60"/>
+                                <subviews>
+                                    <imageView tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="60" placeholderIntrinsicHeight="60" translatesAutoresizingMaskIntoConstraints="NO" id="Psa-LI-7em" customClass="TTTImageView" customModule="iosProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Psa-LI-7em" secondAttribute="height" multiplier="1:1" id="a1w-gY-T9m"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="60" placeholderIntrinsicHeight="60" translatesAutoresizingMaskIntoConstraints="NO" id="cqJ-cn-B48" customClass="TTTImageView" customModule="iosProject" customModuleProvider="target">
+                                        <rect key="frame" x="90" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="cqJ-cn-B48" secondAttribute="height" multiplier="1:1" id="Omx-y1-LW6"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="60" placeholderIntrinsicHeight="60" translatesAutoresizingMaskIntoConstraints="NO" id="O4m-nh-ctZ" customClass="TTTImageView" customModule="iosProject" customModuleProvider="target">
+                                        <rect key="frame" x="180" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="O4m-nh-ctZ" secondAttribute="height" multiplier="1:1" id="WxM-5V-dJV"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="DtH-2N-Tzf">
+                                <rect key="frame" x="67" y="346" width="240" height="60"/>
+                                <subviews>
+                                    <imageView tag="6" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="60" placeholderIntrinsicHeight="60" translatesAutoresizingMaskIntoConstraints="NO" id="d6z-O0-ndk" customClass="TTTImageView" customModule="iosProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="d6z-O0-ndk" secondAttribute="height" multiplier="1:1" id="V6I-g2-DWR"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView tag="7" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="60" placeholderIntrinsicHeight="60" translatesAutoresizingMaskIntoConstraints="NO" id="40z-Yy-gh9" customClass="TTTImageView" customModule="iosProject" customModuleProvider="target">
+                                        <rect key="frame" x="90" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="40z-Yy-gh9" secondAttribute="height" multiplier="1:1" id="4Nq-IW-8Fm"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView tag="8" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="60" placeholderIntrinsicHeight="60" translatesAutoresizingMaskIntoConstraints="NO" id="pcx-fb-CNw" customClass="TTTImageView" customModule="iosProject" customModuleProvider="target">
+                                        <rect key="frame" x="180" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="pcx-fb-CNw" secondAttribute="height" multiplier="1:1" id="iaI-v9-Lyq"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pNo-91-mCG" firstAttribute="leading" secondItem="4KH-pv-mI9" secondAttribute="leadingMargin" constant="51" id="4eE-Bv-91M"/>
+                            <constraint firstItem="Rpa-ye-G3f" firstAttribute="leading" secondItem="4KH-pv-mI9" secondAttribute="leadingMargin" constant="40" id="FG9-sb-olR"/>
+                            <constraint firstItem="DtH-2N-Tzf" firstAttribute="top" secondItem="pNo-91-mCG" secondAttribute="bottom" constant="40" id="HRe-JB-FAj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DtH-2N-Tzf" secondAttribute="trailing" constant="52" id="LsG-xt-f7N"/>
+                            <constraint firstItem="ndk-eU-fAn" firstAttribute="leading" secondItem="4KH-pv-mI9" secondAttribute="leadingMargin" constant="51" id="Ray-2A-o3H"/>
+                            <constraint firstItem="pNo-91-mCG" firstAttribute="top" secondItem="ndk-eU-fAn" secondAttribute="bottom" constant="41" id="SqH-35-kpA"/>
+                            <constraint firstItem="DtH-2N-Tzf" firstAttribute="leading" secondItem="4KH-pv-mI9" secondAttribute="leadingMargin" constant="51" id="Wch-KX-xkD"/>
+                            <constraint firstItem="Rpa-ye-G3f" firstAttribute="top" secondItem="Rpr-8F-QA9" secondAttribute="bottom" constant="100" id="byA-Kt-XIT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ndk-eU-fAn" secondAttribute="trailing" constant="52" id="gUi-ry-hm1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Rpa-ye-G3f" secondAttribute="trailing" constant="40" id="glh-Fs-ZsE"/>
+                            <constraint firstItem="ndk-eU-fAn" firstAttribute="top" secondItem="Rpr-8F-QA9" secondAttribute="bottom" constant="125" id="rjo-5W-MYK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pNo-91-mCG" secondAttribute="trailing" constant="52" id="vr0-jY-Rha"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Tic Tac Toe" id="YRF-sS-raH">
                         <barButtonItem key="leftBarButtonItem" title="Rage quit" id="lAi-Vz-HRi">
@@ -527,15 +537,15 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outletCollection property="fields" destination="tCt-pj-ynl" collectionClass="NSMutableArray" id="T1T-M2-wtf"/>
                         <outletCollection property="fields" destination="19X-0t-wRc" collectionClass="NSMutableArray" id="P7H-ge-YEJ"/>
+                        <outletCollection property="fields" destination="tCt-pj-ynl" collectionClass="NSMutableArray" id="T1T-M2-wtf"/>
                         <outletCollection property="fields" destination="bbY-q6-gX8" collectionClass="NSMutableArray" id="QrJ-sq-97K"/>
-                        <outletCollection property="fields" destination="O4m-nh-ctZ" collectionClass="NSMutableArray" id="KaR-yW-lxU"/>
                         <outletCollection property="fields" destination="Psa-LI-7em" collectionClass="NSMutableArray" id="L7d-OI-k6I"/>
                         <outletCollection property="fields" destination="cqJ-cn-B48" collectionClass="NSMutableArray" id="sKC-ON-fKa"/>
+                        <outletCollection property="fields" destination="O4m-nh-ctZ" collectionClass="NSMutableArray" id="KaR-yW-lxU"/>
+                        <outletCollection property="fields" destination="d6z-O0-ndk" collectionClass="NSMutableArray" id="uca-j7-ey1"/>
                         <outletCollection property="fields" destination="40z-Yy-gh9" collectionClass="NSMutableArray" id="exa-ew-h9x"/>
                         <outletCollection property="fields" destination="pcx-fb-CNw" collectionClass="NSMutableArray" id="F8r-z4-Ihi"/>
-                        <outletCollection property="fields" destination="d6z-O0-ndk" collectionClass="NSMutableArray" id="uca-j7-ey1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1AN-hE-LSJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -555,7 +565,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EMy-PN-6I4" id="4qo-en-Zdx">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User - Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6LJ-8k-zkC">
@@ -712,8 +722,6 @@
         <image name="RockPS" width="480" height="356"/>
         <image name="Tic_Tac_Toe" width="276" height="270"/>
         <image name="Yes" width="210" height="213"/>
-        <image name="field" width="316" height="302"/>
-        <image name="o" width="50" height="50"/>
-        <image name="x" width="50" height="50"/>
+        <image name="field" width="321" height="321"/>
     </resources>
 </document>
