@@ -102,6 +102,7 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
             // Your code with delay
             
             self.appDelegate.mpcHandler.session.disconnect()
+                self.appDelegate.mpcHandler.advertiseSelf(advertise: false)
             //code for the change to main view without losing that navigation bar
             guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") else {
                 print("View controller toMain not found")
@@ -333,7 +334,7 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
             }))
             alert.addAction(UIAlertAction(title: "Quit", style: .cancel, handler: { (action: UIAlertAction!) in
                 print("Handle Cancel Logic here")
-                self.appDelegate.scoreHandler.getResultsFromGame(name: self.opponent!, res: "Win")
+                self.appDelegate.scoreHandler.getResultsFromGame(name: self.opponent!, res: "Lose")
                 self.changeToMain()
             }))
             
@@ -377,7 +378,7 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
             }))
             alert.addAction(UIAlertAction(title: "Quit", style: .cancel, handler: { (action: UIAlertAction!) in
                 print("Handle Cancel Logic here")
-                self.appDelegate.scoreHandler.getResultsFromGame(name: self.opponent!, res: "Win")
+                self.appDelegate.scoreHandler.getResultsFromGame(name: self.opponent!, res: "Tie")
                 self.changeToMain()
             }))
             
