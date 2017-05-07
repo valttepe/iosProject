@@ -23,7 +23,7 @@ class LoginViewController: UIViewController {
         backgroundColor()
         self.loginButton.layer.cornerRadius = 4
         appDelegate = UIApplication.shared.delegate as! AppDelegate
-
+        //appDelegate.scoreHandler.getPlayerScores()
         // Do any additional setup after loading the view.
     }
 
@@ -31,17 +31,19 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func TieButton(_ sender: Any) {
-        appDelegate.scoreHandler.getResultsFromGame(name: "TestOpponent", res: "Tie")
-    }
+    //testing for scores 
     
-    @IBAction func WinButton(_ sender: Any) {
-        appDelegate.scoreHandler.getResultsFromGame(name: "TestOpponent", res: "Win")
-    }
-    
-    @IBAction func LoseButton(_ sender: Any) {
-        appDelegate.scoreHandler.getResultsFromGame(name: "TestOpponent1", res: "Lose")
-    }
+//    @IBAction func TieButton(_ sender: Any) {
+//        appDelegate.scoreHandler.getResultsFromGame(name: "TestOpponent", res: "Tie")
+//    }
+//    
+//    @IBAction func WinButton(_ sender: Any) {
+//        appDelegate.scoreHandler.getResultsFromGame(name: "TestOpponent", res: "Win")
+//    }
+//    
+//    @IBAction func LoseButton(_ sender: Any) {
+//        appDelegate.scoreHandler.getResultsFromGame(name: "TestOpponent1", res: "Lose")
+//    }
     
     
     @IBAction func loginButton(_ sender: Any) {

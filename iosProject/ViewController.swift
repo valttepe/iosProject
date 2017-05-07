@@ -11,7 +11,8 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var loginText: UILabel!
-    @IBOutlet weak var scoresButton: UIButton!
+    @IBOutlet weak var scoresButton: UIBarButtonItem!
+    @IBOutlet weak var loginButton: UIBarButtonItem!
     
     
     
@@ -42,11 +43,17 @@ class ViewController: UIViewController {
             print(check)
             print(userName)
             self.loginText.text = "Logged in as \(userName)"
-            
-            
+            self.loginButton.title = ""
+            self.loginButton.isEnabled = false
+            self.scoresButton.title = "Scores"
+            self.scoresButton.isEnabled = true
         }
         else {
             self.loginText.text = "Logged in as Guest"
+            self.scoresButton.title = ""
+            self.scoresButton.isEnabled = false
+
+            
         }
         
         

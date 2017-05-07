@@ -7,16 +7,23 @@
 //
 
 import UIKit
+import CoreData
 
 class ScoreTableViewController: UITableViewController {
     
     //MARK: Properties
     
-    var scores = [Score]()
+    var scores = [OneScore]()
+    var appDelegate:AppDelegate!
+    var yourUser:User!
+    var you:String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        appDelegate = UIApplication.shared.delegate as! AppDelegate
+        loadScores()
+        backgroundColor()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -32,25 +39,74 @@ class ScoreTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+
+        return scores.count
     }
+    
+     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        //Table view cells are reused and should be dequeued using a cell indetifier
+        let cellIndetifier = "ScoreTableViewCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIndetifier, for: indexPath) as? ScoreTableViewCell else {
+            fatalError("The dequeued cell is not an instance of ScoreTableViewCell")
+        }
+        
+        // Fetches the appropriate score for the data source layut.
+        let score = scores[indexPath.row]
+        let backColor = UIColor(red: 30/255.0, green: 30/255.0, blue: 30/255.0, alpha: 1.0)
+        cell.backgroundColor = backColor
+        cell.nameLabel.text = "\(self.yourUser.username!) - \(score.opponent) "
+        cell.winStreak.text = String(score.win)
+        cell.tieStreak.text = String(score.tie)
+        cell.loseStreak.text = String(score.lose)
+     return cell
+     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+    private func loadScores() {
+        print("It goes here")
+        appDelegate.scoreHandler.you = appDelegate.scoreHandler.getYourself()
+        appDelegate.scoreHandler.fetchYourself()
+        self.yourUser = appDelegate.scoreHandler.yourUser!
+        let fetchScore:NSFetchRequest<Score> = Score.fetchRequest()
+        let youPredicate = NSPredicate(format: "user = %@", self.yourUser!)
+        fetchScore.predicate = youPredicate
+        
+        do {
+            let searchResults = try DatabaseController.getContext().fetch(fetchScore)
+            if searchResults.count == 0 {
+                print("You have no scores")
+                // Prints only overall scores
+                let yourScore = OneScore.init(you: self.yourUser.username!, opponent: "Overall Records", win: Int(self.yourUser.win), lose: Int(self.yourUser.lose), tie: Int(self.yourUser.tie))
+                self.scores.append(yourScore)
 
-        // Configure the cell...
+            }
+            else {
+                let yourScore = OneScore.init(you: self.yourUser.username!, opponent: "Overall Records", win: Int(self.yourUser.win), lose: Int(self.yourUser.lose), tie: Int(self.yourUser.tie))
+                self.scores.append(yourScore)
+                for result in searchResults as [Score] {
+                    print("Game opponent was \(result.player2!)")
+                    let score = OneScore.init(you: result.user!.username!, opponent: result.player2!, win: Int(result.win), lose: Int(result.lose), tie: Int(result.tie))
+                    self.scores.append(score)
+                }
+            }
+        }
+            
+        catch {
+            print("Error: \(error)")
+        }
 
-        return cell
+        
     }
-    */
-
+    
+    private func backgroundColor() {
+    let backColor = UIColor(red: 30/255.0, green: 30/255.0, blue: 30/255.0, alpha: 1.0)
+    view.backgroundColor = backColor
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -96,8 +152,5 @@ class ScoreTableViewController: UITableViewController {
     }
     */
     
-    private func loadScores() {
-        
-    }
-
+    
 }

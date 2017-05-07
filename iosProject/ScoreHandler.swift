@@ -154,6 +154,37 @@ class ScoreHandler {
         
     }
     
+//    func getPlayerScores() {
+//        
+//        self.you = getYourself()
+//        self.fetchYourself()
+//        
+//        let fetchScore:NSFetchRequest<Score> = Score.fetchRequest()
+//        let youPredicate = NSPredicate(format: "user = %@", self.yourUser!)
+//        fetchScore.predicate = youPredicate
+//        
+//        do {
+//            let searchResults = try DatabaseController.getContext().fetch(fetchScore)
+//            if searchResults.count == 0 {
+//                print("You have no scores")
+//                // Prints only overall scores
+//            }
+//            else {
+//                for result in searchResults as [Score] {
+//                    print("Game opponent was \(result.player2!)")
+//                }
+//            }
+//        }
+//            
+//        catch {
+//            print("Error: \(error)")
+//        }
+//
+    
+        
+        
+  //  }
+    
    
     
     

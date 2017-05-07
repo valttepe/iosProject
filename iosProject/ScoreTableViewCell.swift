@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ScoreTableViewCell: UITableViewCell {
     
@@ -15,10 +16,9 @@ class ScoreTableViewCell: UITableViewCell {
     @IBOutlet weak var tieStreak: UILabel!
     @IBOutlet weak var loseStreak: UILabel!
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+                // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -26,5 +26,6 @@ class ScoreTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+   
 }
