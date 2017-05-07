@@ -58,7 +58,12 @@ class ViewController: UIViewController {
         
         
     }
-    
+    @IBAction func xButton(_ sender: Any) {
+        let alert = UIAlertController(title: "Are you sure?", message: "You can play even without problems", preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     func backgroundColor() {
         let backColor = UIColor(red: 30/255.0, green: 30/255.0, blue: 30/255.0, alpha: 1.0)
         view.backgroundColor = backColor
