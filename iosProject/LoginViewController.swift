@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundColor()
+        // making a little rounding to button
         self.loginButton.layer.cornerRadius = 4
         appDelegate = UIApplication.shared.delegate as! AppDelegate
         //appDelegate.scoreHandler.getPlayerScores()
@@ -47,6 +48,7 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func loginButton(_ sender: Any) {
+        //Fetches with two predicates at the same time
         let fetchRequest:NSFetchRequest<User> = User.fetchRequest()
         
         let userFilter = userField.text!
@@ -75,6 +77,7 @@ class LoginViewController: UIViewController {
             }
             
             else {
+                //User was found and it adds to userdefaults most crucial data from it like username and boolean value and sends back to main page
                 for result in searchResults as [User] {
                     print("User is \(result.username!)")
                     

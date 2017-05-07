@@ -21,14 +21,15 @@ class ChooseViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // Checking that tapGesture works. This tap leads to tictactoe
     @IBAction func firstGameTap(_ sender: UITapGestureRecognizer) {
         print("First pressed")
     }
-    
+    // Checking also. This tap leads to RPS
     @IBAction func secondGameTap(_ sender: UITapGestureRecognizer) {
         print("Second pressed")
     }
- 
+    // Random button and it decides with random number which game it opens.
     @IBAction func RandomTap(_ sender: UITapGestureRecognizer) {
         print("Random pressed")
         let random = Int(arc4random_uniform(2))
@@ -40,11 +41,12 @@ class ChooseViewController: UIViewController {
             self.selectRandom(name: "RPS")
         }
     }
-    
+    // Same old story.
     func backgroundColor() {
         let backColor = UIColor(red: 30/255.0, green: 30/255.0, blue: 30/255.0, alpha: 1.0)
         view.backgroundColor = backColor
     }
+    // function for selecting random game
     func selectRandom(name:String) {
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: name) else {
             print("View controller toMain not found")

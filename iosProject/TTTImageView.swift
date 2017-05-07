@@ -9,7 +9,7 @@
 import UIKit
 
 class TTTImageView: UIImageView {
-
+    // helper function for the tic tac toe and it sets players with marks x and o
     var player:String?
     var activated:Bool! = false
     

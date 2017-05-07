@@ -336,33 +336,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="USz-L4-B1s">
-                                <rect key="frame" x="86" y="84" width="203" height="553"/>
+                                <rect key="frame" x="86" y="104" width="203" height="406"/>
                                 <subviews>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="150" placeholderIntrinsicHeight="150" image="Tic_Tac_Toe" translatesAutoresizingMaskIntoConstraints="NO" id="b3z-WN-faJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="203" height="203"/>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="130" placeholderIntrinsicHeight="130" image="Tic_Tac_Toe" translatesAutoresizingMaskIntoConstraints="NO" id="b3z-WN-faJ">
+                                        <rect key="frame" x="36.5" y="0.0" width="130" height="130"/>
                                         <gestureRecognizers/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="130" id="XfN-qV-7hV"/>
                                             <constraint firstAttribute="width" secondItem="b3z-WN-faJ" secondAttribute="height" multiplier="1:1" id="fCK-78-9yD"/>
+                                            <constraint firstAttribute="height" constant="130" id="w4l-Su-Jad"/>
                                         </constraints>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="ocH-fV-wQH" appends="YES" id="VbP-Pm-rc8"/>
                                         </connections>
                                     </imageView>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="150" placeholderIntrinsicHeight="150" image="RockPS" translatesAutoresizingMaskIntoConstraints="NO" id="v26-63-yrG">
-                                        <rect key="frame" x="9.5" y="211" width="184" height="184"/>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="130" placeholderIntrinsicHeight="130" image="RockPS" translatesAutoresizingMaskIntoConstraints="NO" id="v26-63-yrG">
+                                        <rect key="frame" x="36.5" y="138" width="130" height="130"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="v26-63-yrG" secondAttribute="height" multiplier="1:1" id="9vx-fh-uFg"/>
+                                            <constraint firstAttribute="width" constant="130" id="E0H-tN-Whj"/>
+                                            <constraint firstAttribute="height" constant="130" id="Ocy-dv-NsG"/>
                                         </constraints>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="jBK-TT-xcJ" appends="YES" id="2cd-uf-JqM"/>
                                         </connections>
                                     </imageView>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="150" placeholderIntrinsicHeight="150" image="Random" translatesAutoresizingMaskIntoConstraints="NO" id="LQq-zV-UU5">
-                                        <rect key="frame" x="26.5" y="403" width="150" height="150"/>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="130" placeholderIntrinsicHeight="130" image="Random" translatesAutoresizingMaskIntoConstraints="NO" id="LQq-zV-UU5">
+                                        <rect key="frame" x="36.5" y="276" width="130" height="130"/>
                                         <gestureRecognizers/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="130" id="3vA-7k-kwp"/>
                                             <constraint firstAttribute="width" secondItem="LQq-zV-UU5" secondAttribute="height" multiplier="1:1" id="6ug-Nm-Isw"/>
+                                            <constraint firstAttribute="width" constant="130" id="cxz-5N-hJ3"/>
                                         </constraints>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="36r-Tz-1do" appends="YES" id="ZXa-wD-WlZ"/>
@@ -373,10 +379,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="USz-L4-B1s" firstAttribute="top" secondItem="sVK-XW-4jt" secondAttribute="bottom" constant="20" id="fah-c2-d7N"/>
+                            <constraint firstItem="USz-L4-B1s" firstAttribute="top" secondItem="sVK-XW-4jt" secondAttribute="bottom" constant="40" id="fah-c2-d7N"/>
                             <constraint firstItem="USz-L4-B1s" firstAttribute="leading" secondItem="sWQ-8h-wF5" secondAttribute="leadingMargin" constant="70" id="lve-Jc-ewQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="USz-L4-B1s" secondAttribute="trailing" constant="70" id="m0m-s0-E8a"/>
-                            <constraint firstItem="kfw-51-I3n" firstAttribute="top" secondItem="USz-L4-B1s" secondAttribute="bottom" constant="30" id="uNH-2z-IUo"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -685,7 +690,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CMQ-Fk-Ihd">
-                                <rect key="frame" x="67" y="99" width="240" height="406"/>
+                                <rect key="frame" x="67" y="104" width="240" height="406"/>
                                 <subviews>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="100" image="Rock" translatesAutoresizingMaskIntoConstraints="NO" id="Fnc-tT-dIW">
                                         <rect key="frame" x="55" y="0.0" width="130" height="130"/>
@@ -729,7 +734,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="CMQ-Fk-Ihd" secondAttribute="trailing" constant="52" id="oHu-9P-mzY"/>
-                            <constraint firstItem="CMQ-Fk-Ihd" firstAttribute="top" secondItem="tsk-SJ-5Td" secondAttribute="bottom" constant="35" id="wys-9V-ZXQ"/>
+                            <constraint firstItem="CMQ-Fk-Ihd" firstAttribute="top" secondItem="tsk-SJ-5Td" secondAttribute="bottom" constant="40" id="wys-9V-ZXQ"/>
                             <constraint firstItem="CMQ-Fk-Ihd" firstAttribute="leading" secondItem="dIv-2z-aTQ" secondAttribute="leadingMargin" constant="51" id="xbw-wB-m7y"/>
                         </constraints>
                     </view>

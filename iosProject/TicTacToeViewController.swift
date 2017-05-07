@@ -39,7 +39,7 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
         backgroundColor()
         //Init for appdelegate
         appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
+        // gets your player account name
         self.you = appDelegate.scoreHandler.getYourself()
         
         // Sets peer name with phones own device name
@@ -85,6 +85,7 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
     }
     
     func changeToMain () {
+        // Makes message with quit information and sends it to other player.
         let messageDict = ["string":"quit"] as [String : Any]
         
         let messageData = try? JSONSerialization.data(withJSONObject: messageDict, options: JSONSerialization.WritingOptions.prettyPrinted)
@@ -97,12 +98,13 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
         catch let error {
             NSLog("error is :  \(error)")
         }
+        // Delay because otherwise it doesn't send the message before leaving from connection.
         let when = DispatchTime.now() + 2 // change 2 to desired number of seconds
         DispatchQueue.main.asyncAfter(deadline: when) {
             // Your code with delay
-            
+            // Disconnects and stops showing itself in the bluetooth connection thing
             self.appDelegate.mpcHandler.session.disconnect()
-                self.appDelegate.mpcHandler.advertiseSelf(advertise: false)
+            self.appDelegate.mpcHandler.advertiseSelf(advertise: false)
             //code for the change to main view without losing that navigation bar
             guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") else {
                 print("View controller toMain not found")
@@ -120,7 +122,7 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
     
     
 
-    // Bluetooth connection button
+    // Bluetooth connection button and it opens browser for peers
     @IBAction func connectWithPlayer(_ sender: Any) {
         if appDelegate.mpcHandler.session != nil {
             appDelegate.mpcHandler.setupBrowser()
@@ -134,7 +136,7 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
         let userInfo = NSDictionary(dictionary: notification.userInfo!)
         
         let state = userInfo.object(forKey: "state") as! Int
-        
+        // Says when users are connected.
         if state != MCSessionState.connecting.rawValue {
             self.navigationItem.title = "Connected"
         }
@@ -175,8 +177,10 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
             //Takes opponent name
             self.opponent = message?.object(forKey: "opponent") as? String
             
+            // Takes opponent mark o or x
             self.opponentMark = message?.object(forKey: "player") as? String
             
+            // Changes turn check to true so that you can play next
             self.turnCheck = true
             
             // takes field tag number from message
@@ -356,18 +360,7 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
             self.present(alert, animated: true, completion: nil)
         }
         
-        
-//        if winner != ""{
-//            
-//            let alert = UIAlertController(title: "Tic Tac Toe", message: "The winner is \(winner)", preferredStyle: UIAlertControllerStyle.alert)
-//            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (alert:UIAlertAction!) -> Void in
-//                //self.appDelegate.scoreHandler.getOpponent(name: self.opponent!)
-//                self.resetField()
-//            }))
-//            
-//            self.present(alert, animated: true, completion: nil)
-//        }
-        
+
         // if game is tie and no winner is found
         
         if winner == "" && count == 9{

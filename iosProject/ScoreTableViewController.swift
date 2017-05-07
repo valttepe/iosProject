@@ -56,10 +56,12 @@ class ScoreTableViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of ScoreTableViewCell")
         }
         
-        // Fetches the appropriate score for the data source layut.
+        // Fetches the appropriate score for the data source layout.
         let score = scores[indexPath.row]
+        //colors
         let backColor = UIColor(red: 30/255.0, green: 30/255.0, blue: 30/255.0, alpha: 1.0)
         cell.backgroundColor = backColor
+        //information to labels
         cell.nameLabel.text = "\(self.yourUser.username!) - \(score.opponent) "
         cell.winStreak.text = String(score.win)
         cell.tieStreak.text = String(score.tie)
@@ -69,9 +71,13 @@ class ScoreTableViewController: UITableViewController {
 
     private func loadScores() {
         print("It goes here")
+        // adds you to specific place in scorehandler so that rest of the code works.
         appDelegate.scoreHandler.you = appDelegate.scoreHandler.getYourself()
+        //Fetches user with the you from above
         appDelegate.scoreHandler.fetchYourself()
+        //adds to here user that has been fetched
         self.yourUser = appDelegate.scoreHandler.yourUser!
+        // Fetches scores with that yourUser
         let fetchScore:NSFetchRequest<Score> = Score.fetchRequest()
         let youPredicate = NSPredicate(format: "user = %@", self.yourUser!)
         fetchScore.predicate = youPredicate
@@ -81,11 +87,13 @@ class ScoreTableViewController: UITableViewController {
             if searchResults.count == 0 {
                 print("You have no scores")
                 // Prints only overall scores
+                //Adds overall scores to first cell
                 let yourScore = OneScore.init(you: self.yourUser.username!, opponent: "Overall Records", win: Int(self.yourUser.win), lose: Int(self.yourUser.lose), tie: Int(self.yourUser.tie))
                 self.scores.append(yourScore)
 
             }
             else {
+                // adds overall scores to first and next game pair scores 
                 let yourScore = OneScore.init(you: self.yourUser.username!, opponent: "Overall Records", win: Int(self.yourUser.win), lose: Int(self.yourUser.lose), tie: Int(self.yourUser.tie))
                 self.scores.append(yourScore)
                 for result in searchResults as [Score] {

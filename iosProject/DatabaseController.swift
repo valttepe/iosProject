@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 class DatabaseController {
-    
+    // This code file is for database and it is made for accessing coredata more easily
     private init() {
         
     }

@@ -74,9 +74,11 @@ class ScoreHandler {
             print("Guest account doesn't do anything in here")
         }
         else {
+            // fetches user
             fetchYourself()
             print("Fetch was success \(self.yourUser!.username!)")
             
+            // fetches scores with opponent that you play with 
             let fetchScore:NSFetchRequest<Score> = Score.fetchRequest()
             let oppPredicate = NSPredicate(format: "player2 = %@", self.opponent!)
             fetchScore.predicate = oppPredicate

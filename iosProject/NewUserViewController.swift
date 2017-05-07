@@ -25,7 +25,9 @@ class NewUserViewController: UIViewController{
         super.viewDidLoad()
         
         backgroundColor()
+        // rounding button
         self.registerButton.layer.cornerRadius = 4
+        // own method to check password
         rePasswordField.addTarget(self, action: #selector(didChangeText(textField:)), for: .editingChanged)
         
         
@@ -84,6 +86,7 @@ class NewUserViewController: UIViewController{
         
         else {
             print("success")
+            // puts information to database
             let deviceName: String = UIDevice.current.name
             let user:User = NSEntityDescription.insertNewObject(forEntityName: self.userClassName , into: DatabaseController.getContext()) as! User
             
@@ -95,6 +98,7 @@ class NewUserViewController: UIViewController{
             user.win = 0
             DatabaseController.saveContext()
             
+            //Logs in automatically
             UserDefaults.standard.set(true, forKey: "LoggedIn")
             UserDefaults.standard.setValue(username, forKey: "User")
             

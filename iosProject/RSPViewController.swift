@@ -81,7 +81,7 @@ class RSPViewController: UIViewController, MCBrowserViewControllerDelegate {
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
-            //Sets player marking in the field and sends notification to other player
+            //Sets players choice and sends notification to other player
         else if self.turnCheck == true {
             self.yours = name
             let op = appDelegate.scoreHandler.getYourself()
@@ -97,10 +97,12 @@ class RSPViewController: UIViewController, MCBrowserViewControllerDelegate {
             catch let error {
                 NSLog("error is :  \(error)")
             }
+            //ends turn
             self.turnCheck = false
             if self.readyCheck == true {
                 self.checkResult()
             }
+            // if not true then it changes and it starts to wait other player
             self.readyCheck = true
         }
         

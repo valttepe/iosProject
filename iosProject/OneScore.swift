@@ -9,7 +9,7 @@
 import Foundation
 
 class OneScore {
-    
+    //Helper class for tableview information
     var you: String
     var opponent: String
     var win: Int
