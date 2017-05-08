@@ -217,14 +217,17 @@ class RSPViewController: UIViewController, MCBrowserViewControllerDelegate {
             self.present(alert, animated: true, completion: nil)
         }
         else {
+            
             //Takes opponents choice
             self.opponent = message?.object(forKey: "choice") as? String
             self.opponentName = message?.object(forKey: "opponent") as? String
-            if self.readyCheck == true {
+            if self.opponent != "" && self.opponentName != "" && self.readyCheck == true {
+                
                 self.checkResult()
             }
-            
+            else {
                 self.readyCheck = true
+            }
 
 
             
@@ -232,7 +235,7 @@ class RSPViewController: UIViewController, MCBrowserViewControllerDelegate {
     }
     
     func checkResult() {
-        
+        //self.readyCheck = false
         if self.yours == "rock" && self.opponent == "paper"{
             print("Opponent Wins")
             self.showResult(result: "Lose", text: "Opponent wins")
@@ -266,14 +269,23 @@ class RSPViewController: UIViewController, MCBrowserViewControllerDelegate {
             print("Game was a Tie")
             self.showResult(result: "Tie", text: "The game was tie")
         }
+        
+    }
+    
+    func reset() {
+        self.readyCheck = false
+        self.turnCheck = true
+        self.yours = ""
+        self.opponent = ""
+        self.opponentName = ""
     }
     
     func showResult(result:String, text:String) {
         let alert = UIAlertController(title: "Rock Paper Scissors", message: text, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Rematch", style: UIAlertActionStyle.default, handler: { (alert:UIAlertAction!) -> Void in
             self.appDelegate.scoreHandler.getResultsFromGame(name: self.opponentName!, res: result)
-            self.turnCheck = true
-            self.readyCheck = false
+                self.reset()
+            print(self.readyCheck)
         }))
         alert.addAction(UIAlertAction(title: "Quit", style: .cancel, handler: { (action: UIAlertAction!) in
             print("Handle Cancel Logic here")

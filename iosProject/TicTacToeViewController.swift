@@ -98,6 +98,7 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
         catch let error {
             NSLog("error is :  \(error)")
         }
+        
         // Delay because otherwise it doesn't send the message before leaving from connection.
         let when = DispatchTime.now() + 2 // change 2 to desired number of seconds
         DispatchQueue.main.asyncAfter(deadline: when) {
@@ -329,7 +330,7 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
         
         print(count)
         
-        // Checks if you or opponent wins ar
+        // Checks if you or opponent wins
         if winner == opponentMark {
             let alert = UIAlertController(title: "Tic Tac Toe", message: "You Lose", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Rematch", style: UIAlertActionStyle.default, handler: { (alert:UIAlertAction!) -> Void in
