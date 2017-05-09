@@ -253,8 +253,8 @@ class TicTacToeViewController: UIViewController, MCBrowserViewControllerDelegate
             
         }
         else {
-            //if there isn't connection to other player
-            let alert = UIAlertController(title: "Error", message: "You must connect before playing", preferredStyle: UIAlertControllerStyle.alert)
+            //if it isn't your turn
+            let alert = UIAlertController(title: "Error", message: "It's opponents turn", preferredStyle: UIAlertControllerStyle.alert)
             
             
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
