@@ -58,19 +58,28 @@ class RSPViewController: UIViewController, MCBrowserViewControllerDelegate {
     }
     
     @IBAction func RockButton(_ sender: UITapGestureRecognizer) {
-        self.displayChoiceLabel.text = "You chose Rock"
+        //Checks that if player is connected
+        if appDelegate.mpcHandler.session.connectedPeers.count != 0 {
+            self.displayChoiceLabel.text = "You chose Rock"
+        }
         self.yourChoice(name: "rock")
         
         
     }
     
     @IBAction func PaperButton(_ sender: UITapGestureRecognizer) {
-        self.displayChoiceLabel.text = "You chose Paper"
+        //Checks that if player is connected
+        if appDelegate.mpcHandler.session.connectedPeers.count != 0 {
+            self.displayChoiceLabel.text = "You chose Paper"
+        }
         self.yourChoice(name: "paper")
     }
     
     @IBAction func ScissorsButton(_ sender: UITapGestureRecognizer) {
-        self.displayChoiceLabel.text = "You chose Scissors"
+        //Checks that if player is connected
+        if appDelegate.mpcHandler.session.connectedPeers.count != 0 {
+            self.displayChoiceLabel.text = "You chose Scissors"
+        }
         self.yourChoice(name: "scissors")
     }
     
@@ -282,7 +291,7 @@ class RSPViewController: UIViewController, MCBrowserViewControllerDelegate {
         self.yours = ""
         self.opponent = ""
         self.opponentName = ""
-        self.displayChoiceLabel.text = "Displays your choice"
+        self.displayChoiceLabel.text = ""
     }
     
     func showResult(result:String, text:String) {
