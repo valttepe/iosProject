@@ -20,6 +20,7 @@ class RSPViewController: UIViewController, MCBrowserViewControllerDelegate {
     var yours:String!
     var opponent:String!
     var opponentName:String!
+    @IBOutlet weak var displayChoiceLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,16 +58,19 @@ class RSPViewController: UIViewController, MCBrowserViewControllerDelegate {
     }
     
     @IBAction func RockButton(_ sender: UITapGestureRecognizer) {
+        self.displayChoiceLabel.text = "You chose Rock"
         self.yourChoice(name: "rock")
         
         
     }
     
     @IBAction func PaperButton(_ sender: UITapGestureRecognizer) {
+        self.displayChoiceLabel.text = "You chose Paper"
         self.yourChoice(name: "paper")
     }
     
     @IBAction func ScissorsButton(_ sender: UITapGestureRecognizer) {
+        self.displayChoiceLabel.text = "You chose Scissors"
         self.yourChoice(name: "scissors")
     }
     
@@ -278,6 +282,7 @@ class RSPViewController: UIViewController, MCBrowserViewControllerDelegate {
         self.yours = ""
         self.opponent = ""
         self.opponentName = ""
+        self.displayChoiceLabel.text = "Displays your choice"
     }
     
     func showResult(result:String, text:String) {
