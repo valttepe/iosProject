@@ -1,6 +1,9 @@
 # Overview
 Game for solving problems. It uses simple games for deciding winner. It has tic tac toe and rock paper scissors games included. Games are played with two phones and it uses bluetooth connection to communicating between to players. And results are stored in the CoreData and displayed in the list. 
 
+# UI documentation
+https://drive.google.com/open?id=1qtuqyr-MNEKE1sAoQrpIR4MlN616N0awTkE8eURS964 
+
 # Install on two phones
 * Download from the git to xcode. 
 * Try to build to phone 
